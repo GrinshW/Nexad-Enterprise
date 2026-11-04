@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NexAd Enterprise - Global Institutional Ad Network</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+    
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #090d16;
+      color: #e2e8f0;
+    }
+
+    .glass-panel {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .glass-card {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(15, 23, 42, 0.8) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .glass-card:hover {
+      border-color: rgba(59, 130, 246, 0.4);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px -10px rgba(59, 130, 246, 0.25);
+    }
+
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .brand-gradient-text {
+      background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #2563eb 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Ticker Animation */
+    @keyframes ticker {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-50%, 0, 0); }
+    }
+
+    .ticker-wrap {
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .ticker-move {
+      display: inline-block;
+      animation: ticker 35s linear infinite;
+    }
+
+    .ticker-move:hover {
+      animation-play-state: paused;
+    }
+
+    .ad-banner-300 {
+      background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+      background-size: 200% 200%;
+      animation: gradientShift 6s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-blue-600 selection:text-white">
+
+  <!-- TOP MARQUESINA DE PROMOCIONES Y RETIROS EN TIEMPO REAL -->
+  <div class="bg-slate-950 border-b border-slate-800/80 text-xs py-2 px-4 text-slate-400 ticker-wrap">
+    <div class="ticker-move flex items-center gap-8">
+      <span class="flex items-center gap-2"><i class="fa-solid fa-bolt text-amber-400"></i> <strong class="text-slate-200">NEXAD CORPORATE:</strong> Fondo global publicitario asignado hoy: <span class="text-emerald-400 font-bold">$1,250,000.00 USD</span></span>
+      <span class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400"></i> Usuario <span class="text-slate-200 font-mono">ID_88492</span> retiró <span class="text-emerald-400 font-semibold">$350.00 USDT</span> hace 2 min</span>
+      <span class="flex items-center gap-2"><i class="fa-solid fa-crown text-amber-400"></i> Partner VIP <span class="text-slate-200 font-mono">GlobalCapital_Corp</span> completó campaña publicitaria</span>
+      <span class="flex items-center gap-2"><i class="fa-solid fa-chart-line text-blue-400"></i> CPM Promedio Institucional: <span class="text-blue-300 font-semibold">$48.50 USD</span></span>
+      <!-- Repetición para ciclo infinito continuo -->
+      <span class="flex items-center gap-2"><i class="fa-solid fa-bolt text-amber-400"></i> <strong class="text-slate-200">NEXAD CORPORATE:</strong> Fondo global publicitario asignado hoy: <span class="text-emerald-400 font-bold">$1,250,000.00 USD</span></span>
+      <span class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400"></i> Usuario <span class="text-slate-200 font-mono">ID_88492</span> retiró <span class="text-emerald-400 font-semibold">$350.00 USDT</span> hace 2 min</span>
+    </div>
+  </div>
+
+  <!-- HEADER / NAVBAR CORPORATIVO -->
+  <header class="glass-panel sticky top-0 z-50 px-4 lg:px-8 py-3.5 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+      
+      <!-- LOGO CORPORATIVO -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-amber-400 p-[1px] shadow-lg shadow-blue-500/20">
+          <div class="w-full h-full bg-slate-950 rounded-[11px] flex items-center justify-center">
+            <i class="fa-solid fa-chart-network text-blue-400 text-lg"></i>
+          </div>
+        </div>
+        <div>
+          <span class="text-lg font-extrabold tracking-tight text-white flex items-center gap-1.5">
+            NexAd <span class="brand-gradient-text">Enterprise</span>
+          </span>
+          <span class="block text-[10px] font-semibold text-slate-400 tracking-wider uppercase">Institutional Ad Exchange</span>
+        </div>
+      </div>
+
+      <!-- STATUS BAR & USER SALDO -->
+      <div class="flex items-center gap-3 lg:gap-6">
+        
+        <!-- ESTADO DE LA CUENTA -->
+        <div class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900/80 border border-slate-800 text-xs">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span class="text-slate-400">Nivel Institucional:</span>
+          <span class="text-amber-400 font-bold tracking-wide flex items-center gap-1">
+            <i class="fa-solid fa-shield-halved text-[10px]"></i> TIER 1
+          </span>
+        </div>
+
+        <!-- RECUADRO DE SALDO REAL -->
+        <div class="flex items-center gap-3 bg-slate-900/90 border border-emerald-500/30 rounded-xl px-4 py-1.5 shadow-inner">
+          <div>
+            <span class="block text-[10px] uppercase font-bold text-slate-400">Balance Retirable</span>
+            <span class="text-lg font-extrabold text-emerald-400 font-mono tracking-tight" id="user-balance">$0.00 USD</span>
+          </div>
+        </div>
+
+        <!-- BOTÓN DE RETIRO CORPORATIVO -->
+        <button id="open-withdraw-btn" class="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 font-bold text-xs uppercase tracking-wider px-4 py-2.5 rounded-xl transition-all shadow-lg shadow-emerald-500/20 active:scale-95 flex items-center gap-2">
+          <i class="fa-solid fa-wallet text-sm"></i>
+          <span>Solicitar Liquidez</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- BANNER PUBLICITARIO HEADER 728x90 SIMULADO -->
+  <div class="max-w-7xl mx-auto w-full px-4 pt-6">
+    <div class="w-full bg-gradient-to-r from-slate-900 via-indigo-950/60 to-slate-900 border border-blue-500/20 rounded-2xl p-4 flex flex-col md:flex-row items-center justify-between gap-4 relative overflow-hidden shadow-2xl">
+      <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl"></div>
+      <div class="flex items-center gap-4 z-10">
+        <span class="bg-blue-500/20 text-blue-400 text-[10px] font-extrabold uppercase px-2.5 py-1 rounded border border-blue-500/30">Anuncio Oficial</span>
+        <div>
+          <h4 class="text-sm font-bold text-white tracking-wide">BlackRock Institutional Crypto Vaults</h4>
+          <p class="text-xs text-slate-400">Acceda a rendimientos garantizados del 12% APY respaldados por contratos inteligentes.</p>
+        </div>
+      </div>
+      <a href="#ads-container" class="z-10 bg-slate-800 hover:bg-slate-700 text-blue-400 border border-blue-500/30 text-xs font-bold px-4 py-2 rounded-lg transition text-center whitespace-nowrap">
+        Explorar Contrato <i class="fa-solid fa-arrow-right ml-1"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- DASHBOARD PRINCIPAL -->
+  <main class="max-w-7xl mx-auto w-full px-4 py-6 flex-1 grid grid-cols-1 lg:grid-cols-4 gap-6">
+
+    <!-- COLUMNA IZQUIERDA Y CENTRAL: METRICAS Y ANUNCIOS (3 COLS) -->
+    <div class="lg:col-span-3 space-y-6">
+
+      <!-- BANNER SUPERIOR DE INFORMACIÓN DE INVERSIÓN -->
+      <div class="glass-card rounded-2xl p-6 relative overflow-hidden border-blue-500/20">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="flex flex-col md:flex-row justify-between md:items-center gap-4 mb-6">
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="bg-amber-500/10 text-amber-400 text-[11px] font-bold px-2.5 py-0.5 rounded-full border border-amber-500/20 flex items-center gap-1">
+                <i class="fa-solid fa-star text-[9px]"></i> PROGRAMA EXECUTIVE
+              </span>
+              <span class="text-slate-400 text-xs">• ID de Inversor: <span class="font-mono text-slate-300">NX-904128</span></span>
+            </div>
+            <h1 class="text-2xl font-black text-white tracking-tight">Panel de Verificación de Campañas</h1>
+            <p class="text-xs text-slate-400">Visualice y valide la entrega de anuncios de marcas Tier 1 para recibir asignaciones directas de capital.</p>
+          </div>
+
+          <div class="flex gap-2">
+            <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl text-right min-w-[120px]">
+              <span class="block text-[10px] text-slate-400 uppercase font-semibold">Tasa Rendimiento</span>
+              <span class="text-sm font-bold text-emerald-400"><i class="fa-solid fa-arrow-trend-up text-xs mr-1"></i> +480.5%</span>
+            </div>
+            <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl text-right min-w-[120px]">
+              <span class="block text-[10px] text-slate-400 uppercase font-semibold">Verificaciones Hoy</span>
+              <span class="text-sm font-bold text-blue-400" id="verified-count">0 / 6</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TARJETAS RESUMEN DE RENDIMIENTO -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 pt-4 border-t border-slate-800/80">
+          <div class="p-3 bg-slate-900/50 rounded-xl border border-slate-800/60">
+            <span class="text-[10px] text-slate-400 font-semibold block uppercase">Costo Por Clic (CPC)</span>
+            <span class="text-base font-extrabold text-white font-mono">$4.50 USD</span>
+          </div>
+          <div class="p-3 bg-slate-900/50 rounded-xl border border-slate-800/60">
+            <span class="text-[10px] text-slate-400 font-semibold block uppercase">Puntaje de Confianza</span>
+            <span class="text-base font-extrabold text-amber-400 font-mono">99.8%</span>
+          </div>
+          <div class="p-3 bg-slate-900/50 rounded-xl border border-slate-800/60">
+            <span class="text-[10px] text-slate-400 font-semibold block uppercase">Fondo de Garantía</span>
+            <span class="text-base font-extrabold text-emerald-400 font-mono">$50,000.00</span>
+          </div>
+          <div class="p-3 bg-slate-900/50 rounded-xl border border-slate-800/60">
+            <span class="text-[10px] text-slate-400 font-semibold block uppercase">Protocolo Anti-Bot</span>
+            <span class="text-base font-extrabold text-blue-400 flex items-center gap-1">
+              <i class="fa-solid fa-shield-check text-xs"></i> Activo
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN PRINCIPAL: LISTADO DE CAMPANAS / ANUNCIOS PREMIUM -->
+      <div>
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-layer-group text-blue-500"></i> Campañas Institucionales Asignadas
+          </h3>
+          <span class="text-xs text-slate-400">Actualización en vivo <i class="fa-solid fa-arrows-rotate text-[10px] animate-spin ml-1 text-blue-400"></i></span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="ads-container">
+          <!-- Anuncios dinámicos renderizados por JS -->
+        </div>
+      </div>
+
+      <!-- PUBLICIDAD INTEGRADA CENTRAL (BANNER ANCHO 728x90) -->
+      <div class="glass-card rounded-2xl p-4 border-amber-500/20 bg-gradient-to-r from-slate-900 via-amber-950/20 to-slate-900 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-xl font-bold">
+            <i class="fa-solid fa-gem"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-bold text-white">Suscripción VIP Institutional Plus</span>
+              <span class="bg-amber-500/20 text-amber-300 text-[9px] font-black uppercase px-2 py-0.5 rounded">Recomendado</span>
+            </div>
+            <p class="text-xs text-slate-400 mt-0.5">Aumente la asignación diaria por anuncio hasta $15.00 USD y libere retiros inmediatos sin cola de espera.</p>
+          </div>
+        </div>
+        <button class="w-full md:w-auto bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-extrabold text-xs uppercase px-5 py-2.5 rounded-xl transition shadow-lg shadow-amber-500/20 whitespace-nowrap">
+          Actualizar Membresía
+        </button>
+      </div>
+
+    </div>
+
+    <!-- COLUMNA DERECHA: BANNERS LATERALES 300x250 Y WIDGETS DE RED (1 COL) -->
+    <div class="space-y-6">
+
+      <!-- WIDGET DE RED DE REFERIDOS Y METRICAS DE RED -->
+      <div class="glass-panel rounded-2xl p-5 border-slate-800">
+        <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-3 flex items-center justify-between">
+          <span><i class="fa-solid fa-network-wired text-emerald-400 mr-1.5"></i> Red de Afiliados</span>
+          <span class="text-[10px] text-emerald-400 font-mono">10% Comision</span>
+        </h4>
+
+        <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-3 mb-3 text-center">
+          <span class="text-[10px] text-slate-400 uppercase font-semibold block">Referidos Activos</span>
+          <span class="text-2xl font-black text-white font-mono">0 <span class="text-xs font-normal text-slate-400">/ 10 Requeridos</span></span>
+        </div>
+
+        <p class="text-[11px] text-slate-400 leading-relaxed mb-3">
+          Para desbloquear el canal de retiro express, debe vincular al menos 10 ejecutivos de su red institucional.
+        </p>
+
+        <button class="w-full bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 text-xs font-bold py-2 rounded-xl transition flex items-center justify-center gap-2">
+          <i class="fa-solid fa-copy text-blue-400"></i>
+          <span>Copiar Enlace Institucional</span>
+        </button>
+      </div>
+
+      <!-- PUBLICIDAD INTEGRADA LATERAL 1 (SIMULACIÓN BOX 300x250) -->
+      <div class="ad-banner-300 rounded-2xl p-5 border border-indigo-500/30 relative overflow-hidden shadow-xl text-center">
+        <span class="absolute top-2 right-2 text-[9px] bg-slate-950/80 text-slate-400 px-1.5 py-0.5 rounded uppercase font-bold border border-slate-800">Sponsor</span>
+        <div class="w-12 h-12 mx-auto mt-2 mb-3 bg-indigo-500/20 text-indigo-400 rounded-2xl flex items-center justify-center text-2xl">
+          <i class="fa-solid fa-building-columns"></i>
+        </div>
+        <h4 class="text-sm font-bold text-white mb-1">Swiss Private Banking Account</h4>
+        <p class="text-xs text-slate-400 mb-4">Apertura 100% digital con custodia de activos en Zurich. Tarjeta metal de débito ilimitada.</p>
+        <button class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs py-2 rounded-xl transition shadow-lg shadow-indigo-600/30">
+          Solicitar Invitación
+        </button>
+      </div>
+
+      <!-- PUBLICIDAD INTEGRADA LATERAL 2 (SIMULACIÓN BOX 300x250) -->
+      <div class="glass-card rounded-2xl p-5 border-emerald-500/20 relative overflow-hidden text-center">
+        <span class="absolute top-2 right-2 text-[9px] bg-slate-950/80 text-slate-400 px-1.5 py-0.5 rounded uppercase font-bold border border-slate-800">Promocionado</span>
+        <div class="w-12 h-12 mx-auto mt-2 mb-3 bg-emerald-500/20 text-emerald-400 rounded-2xl flex items-center justify-center text-2xl">
+          <i class="fa-solid fa-microchip"></i>
+        </div>
+        <h4 class="text-sm font-bold text-white mb-1">AI Quant Trading Bot v4</h4>
+        <p class="text-xs text-slate-400 mb-4">Algoritmo predictivo de alta frecuencia para Forex y Criptoactivos Tier 1.</p>
+        <button class="w-full bg-slate-800 hover:bg-slate-700 border border-emerald-500/30 text-emerald-400 font-bold text-xs py-2 rounded-xl transition">
+          Probar Demo Gratuita
+        </button>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- MODAL: VISOR DE ANUNCIOS PREMIUM -->
+  <div class="fixed inset-0 bg-slate-950/90 backdrop-blur-md z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300" id="ad-modal">
+    <div class="glass-panel w-full max-w-xl rounded-2xl p-6 border-blue-500/30 shadow-2xl relative">
+      
+      <button class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl transition" id="close-ad-modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="text-center mb-6">
+        <span class="inline-block bg-blue-500/10 text-blue-400 text-[10px] font-extrabold uppercase px-3 py-1 rounded-full border border-blue-500/20 mb-2">
+          Verificación de Entrega en Proceso
+        </span>
+        <h3 class="text-xl font-extrabold text-white" id="modal-ad-title">Cargando Campaña...</h3>
+        <p class="text-xs text-slate-400 mt-1" id="modal-ad-status">Mantenga esta ventana abierta durante el tiempo de auditoría.</p>
+      </div>
+
+      <!-- BARRA DE PROGRESO -->
+      <div class="w-full bg-slate-900 rounded-full h-3 p-0.5 mb-6 border border-slate-800 overflow-hidden">
+        <div class="bg-gradient-to-r from-blue-500 via-indigo-500 to-emerald-400 h-full rounded-full w-0 transition-all duration-100 ease-linear" id="ad-progress"></div>
+      </div>
+
+      <!-- CONTENEDOR PUBLICITARIO SIMULADO DENTRO DEL MODAL -->
+      <div class="w-full h-48 bg-slate-900 border border-slate-800 rounded-xl p-4 flex flex-col items-center justify-center text-center relative overflow-hidden mb-6">
+        <div class="absolute inset-0 bg-gradient-to-tr from-blue-900/10 to-transparent pointer-events-none"></div>
+        <i class="fa-solid fa-rectangle-ad text-4xl text-blue-500/40 mb-2"></i>
+        <h4 class="text-base font-bold text-slate-200" id="simulated-sponsor-name">Sponsor Corporate Name</h4>
+        <p class="text-xs text-slate-400 max-w-sm mt-1">Auditando entrega de impresión publicitaria a través del protocolo NexAd Direct Validation.</p>
+      </div>
+
+      <!-- BLOQUE CAPTCHA -->
+      <div class="hidden bg-slate-900/90 border border-slate-800 rounded-xl p-4 text-center" id="captcha-container">
+        <p class="text-xs font-bold text-slate-300 uppercase tracking-wide">Validación Antifraude Requerida</p>
+        <p class="text-sm text-amber-400 font-bold my-2" id="captcha-question">¿Cuánto es 4 + 2?</p>
+        <div class="flex justify-center gap-2 mt-3" id="captcha-buttons"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MODAL: RETIRO DE LIQUIDEZ / RESTRICCIONES -->
+  <div class="fixed inset-0 bg-slate-950/90 backdrop-blur-md z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300" id="withdraw-modal">
+    <div class="glass-panel w-full max-w-md rounded-2xl p-6 border-emerald-500/30 shadow-2xl relative">
+      
+      <button class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl transition" id="close-withdraw-modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg font-bold border border-emerald-500/30">
+          <i class="fa-solid fa-vault"></i>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-white">Solicitud de Liquidez Express</h3>
+          <p class="text-xs text-slate-400">Canal institucional directo de retiro</p>
+        </div>
+      </div>
+
+      <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-3.5 mb-4 text-xs">
+        <span class="font-bold text-red-400 block mb-1 flex items-center gap-1">
+          <i class="fa-solid fa-triangle-exclamation"></i> Requisitos de Elegibilidad TIER 1
+        </span>
+        <ul class="list-disc list-inside text-slate-300 space-y-1">
+          <li>Mínimo de retiro acumulado: <strong class="text-white">$100.00 USD</strong></li>
+          <li>Red de ejecutivos activos: <strong class="text-white">10 Afiliados</strong></li>
+        </ul>
+      </div>
+
+      <div class="space-y-3 mb-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-400 mb-1">Método de Transferencia</label>
+          <select class="w-full bg-slate-900 border border-slate-800 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-blue-500">
+            <option>USDT (TRC-20) Instant Settlement</option>
+            <option>Bitcoin Institutional Transfer</option>
+            <option>SWIFT Direct Bank Transfer</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-400 mb-1">Billetera o IBAN de Destino</label>
+          <input type="text" placeholder="Ej: TK9z8x..." class="w-full bg-slate-900 border border-slate-800 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-blue-500">
+        </div>
+      </div>
+
+      <button id="submit-withdraw-btn" class="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 font-bold text-xs uppercase tracking-wider py-3 rounded-xl transition shadow-lg shadow-emerald-500/20">
+        Procesar Liquidación
+      </button>
+
+      <!-- ALERT ERROR RETIRO -->
+      <div id="withdraw-error-alert" class="hidden mt-3 p-3 bg-red-950/60 border border-red-500/40 rounded-xl text-[11px] text-red-300">
+        <i class="fa-solid fa-circle-exclamation text-red-400 mr-1"></i>
+        <strong>Error de Verificación:</strong> Saldo insuficiente o cuota de referidos incompleta. Requiere $100.00 acumulados.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // ESTADO
+    let state = {
+      balance: 0.00,
+      verifiedCount: 0,
+      activeAd: null,
+      timerInterval: null,
+      captchaAnswer: null
+    };
+
+    // DATOS DE ANUNCIOS PREMIUM CON LOGOS
+    const adsData = [
+      { id: 1, title: 'Goldman Sachs Yield Fund', reward: 4.50, time: 10, category: 'INSTITUTIONAL', sponsor: 'Goldman Sachs Asset Management', icon: 'fa-building-columns', iconColor: 'text-amber-400' },
+      { id: 2, title: 'Morgan Stanley Private Alpha', reward: 3.80, time: 12, category: 'PRIVATE BANK', sponsor: 'Morgan Stanley Wealth', icon: 'fa-chart-pie', iconColor: 'text-blue-400' },
+      { id: 3, title: 'J.P. Morgan Global Liquidity', reward: 5.00, time: 15, category: 'PREMIUM', sponsor: 'J.P. Morgan Treasury', icon: 'fa-vault', iconColor: 'text-emerald-400' },
+      { id: 4, title: 'Sequoia Capital VC Showcase', reward: 4.20, time: 10, category: 'VENTURE', sponsor: 'Sequoia Capital Tech', icon: 'fa-rocket', iconColor: 'text-purple-400' },
+      { id: 5, title: 'Citigroup High-Yield Vault', reward: 3.50, time: 8, category: 'GLOBAL', sponsor: 'Citi Institutional', icon: 'fa-coins', iconColor: 'text-cyan-400' },
+      { id: 6, title: 'Fidelity Strategic Allocation', reward: 4.00, time: 10, category: 'EQUITY', sponsor: 'Fidelity Investments', icon: 'fa-chart-line', iconColor: 'text-teal-400' }
+    ];
+
+    // ELEMENTOS DOM
+    const adsContainer = document.getElementById('ads-container');
+    const userBalanceEl = document.getElementById('user-balance');
+    const verifiedCountEl = document.getElementById('verified-count');
+
+    const adModal = document.getElementById('ad-modal');
+    const closeAdModalBtn = document.getElementById('close-ad-modal');
+    const withdrawModal = document.getElementById('withdraw-modal');
+    const openWithdrawBtn = document.getElementById('open-withdraw-btn');
+    const closeWithdrawModalBtn = document.getElementById('close-withdraw-modal');
+    const submitWithdrawBtn = document.getElementById('submit-withdraw-btn');
+    const withdrawErrorAlert = document.getElementById('withdraw-error-alert');
+
+    const modalAdTitle = document.getElementById('modal-ad-title');
+    const modalAdStatus = document.getElementById('modal-ad-status');
+    const adProgressBar = document.getElementById('ad-progress');
+    const simulatedSponsorName = document.getElementById('simulated-sponsor-name');
+    const captchaContainer = document.getElementById('captcha-container');
+    const captchaQuestion = document.getElementById('captcha-question');
+    const captchaButtons = document.getElementById('captcha-buttons');
+
+    function init() {
+      renderAds();
+      setupEventListeners();
+    }
+
+    function renderAds() {
+      adsContainer.innerHTML = '';
+      adsData.forEach(ad => {
+        const card = document.createElement('div');
+        card.className = `glass-card rounded-2xl p-4 flex flex-col justify-between relative overflow-hidden ${ad.completed ? 'opacity-40 pointer-events-none grayscale' : ''}`;
+        
+        card.innerHTML = `
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[9px] font-extrabold uppercase tracking-wider bg-slate-900 border border-slate-800 text-blue-400 px-2 py-0.5 rounded-md">
+                ${ad.category}
+              </span>
+              <span class="text-sm font-black text-emerald-400 font-mono">+${ad.reward.toFixed(2)} USD</span>
+            </div>
+
+            <div class="flex items-start gap-3 mb-3">
+              <div class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-lg ${ad.iconColor} shrink-0">
+                <i class="fa-solid ${ad.icon}"></i>
+              </div>
+              <div>
+                <h4 class="text-xs font-bold text-white line-clamp-1">${ad.title}</h4>
+                <p class="text-[10px] text-slate-400 line-clamp-1">${ad.sponsor}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 mt-2">
+            <span class="text-[10px] text-slate-400 font-semibold"><i class="fa-regular fa-clock mr-1"></i>${ad.time}s audit</span>
+            <button onclick="startAdViewer(${ad.id})" class="bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs px-3 py-1.5 rounded-lg transition shadow-md shadow-blue-600/20">
+              Validar
+            </button>
+          </div>
+        `;
+
+        adsContainer.appendChild(card);
+      });
+    }
+
+    window.startAdViewer = function(adId) {
+      const ad = adsData.find(a => a.id === adId);
+      if (!ad || ad.completed) return;
+
+      state.activeAd = ad;
+      modalAdTitle.textContent = ad.title;
+      simulatedSponsorName.textContent = ad.sponsor;
+      modalAdStatus.textContent = 'Mantenga esta ventana abierta durante el tiempo de auditoría.';
+      adProgressBar.style.width = '0%';
+      captchaContainer.classList.add('hidden');
+
+      adModal.classList.remove('opacity-0', 'pointer-events-none');
+
+      let elapsed = 0;
+      const totalTime = ad.time * 10;
+
+      clearInterval(state.timerInterval);
+      state.timerInterval = setInterval(() => {
+        elapsed++;
+        const pct = (elapsed / totalTime) * 100;
+        adProgressBar.style.width = `${pct}%`;
+
+        if (elapsed >= totalTime) {
+          clearInterval(state.timerInterval);
+          showCaptcha();
+        }
+      }, 100);
+    };
+
+    function showCaptcha() {
+      modalAdStatus.textContent = 'Auditoría completada. Resuelva la validación para recibir los fondos.';
+      
+      const num1 = Math.floor(Math.random() * 9) + 1;
+      const num2 = Math.floor(Math.random() * 9) + 1;
+      state.captchaAnswer = num1 + num2;
+
+      captchaQuestion.textContent = `¿Cuánto es ${num1} + ${num2}?`;
+
+      const options = new Set([state.captchaAnswer]);
+      while (options.size < 4) {
+        options.add(Math.floor(Math.random() * 18) + 1);
+      }
+
+      captchaButtons.innerHTML = '';
+      Array.from(options).sort(() => Math.random() - 0.5).forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'bg-slate-800 hover:bg-blue-600 border border-slate-700 text-white font-bold text-xs px-3.5 py-1.5 rounded-lg transition';
+        btn.textContent = opt;
+        btn.onclick = () => verifyCaptcha(opt);
+        captchaButtons.appendChild(btn);
+      });
+
+      captchaContainer.classList.remove('hidden');
+    }
+
+    function verifyCaptcha(selectedOption) {
+      if (selectedOption === state.captchaAnswer) {
+        state.balance += state.activeAd.reward;
+        state.verifiedCount++;
+        
+        updateUI();
+
+        state.activeAd.completed = true;
+        renderAds();
+
+        adModal.classList.add('opacity-0', 'pointer-events-none');
+      } else {
+        showCaptcha();
+      }
+    }
+
+    function updateUI() {
+      userBalanceEl.textContent = `$${state.balance.toFixed(2)} USD`;
+      verifiedCountEl.textContent = `${state.verifiedCount} / 6`;
+    }
+
+    function setupEventListeners() {
+      closeAdModalBtn.onclick = () => {
+        clearInterval(state.timerInterval);
+        adModal.classList.add('opacity-0', 'pointer-events-none');
+      };
+
+      openWithdrawBtn.onclick = () => {
+        withdrawErrorAlert.classList.add('hidden');
+        withdrawModal.classList.remove('opacity-0', 'pointer-events-none');
+      };
+
+      closeWithdrawModalBtn.onclick = () => {
+        withdrawModal.classList.add('opacity-0', 'pointer-events-none');
+      };
+
+      submitWithdrawBtn.onclick = () => {
+        withdrawErrorAlert.classList.remove('hidden');
+      };
+    }
+
+    init();
+  </script>
+</body>
+</html>
